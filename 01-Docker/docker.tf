@@ -1,11 +1,11 @@
 resource "aws_instance" "Docker" {
   ami                    = "ami-09c813fb71547fc4f"
   vpc_security_group_ids = [aws_security_group.allow_tls.id]
-  subnet_id     = "subnet-06537747f3b689663"
+  subnet_id     = "subnet-04641cc538c1855ad"
   instance_type          = "t2.micro"
   associate_public_ip_address = true 
   root_block_device {
-    volume_size = 50  # Set root volume size to 50GB
+    volume_size = 100  # Set root volume size to 50GB
     volume_type = "gp3"  # Use gp3 for better performance (optional)
   }
   user_data = file("docker.sh")
